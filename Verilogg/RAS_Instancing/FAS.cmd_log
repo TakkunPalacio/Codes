@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/John Isa/Documents/VSCode/Verilogg/RAS_Instancing/FAS.xst" -ofn "C:/Users/John Isa/Documents/VSCode/Verilogg/RAS_Instancing/FAS.syr" 

@@ -1,0 +1,3 @@
+#Sytax and error lesson 09/02
+import whisper 
+model = whisper.load_model("medium")

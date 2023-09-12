@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/John Isa/Documents/VSCode/Verilogg/MULT/Multi.xst" -ofn "C:/Users/John Isa/Documents/VSCode/Verilogg/MULT/Multi.syr" 

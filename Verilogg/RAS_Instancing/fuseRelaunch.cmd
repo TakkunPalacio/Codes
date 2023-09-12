@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/John Isa/Documents/VSCode/Verilogg/RAS_Instancing/tb_Fas_isim_beh.exe" -prj "C:/Users/John Isa/Documents/VSCode/Verilogg/RAS_Instancing/tb_Fas_beh.prj" "work.tb_Fas" "work.glbl" 

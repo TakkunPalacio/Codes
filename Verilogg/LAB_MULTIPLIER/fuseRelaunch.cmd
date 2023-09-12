@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/John Isa/Documents/VSCode/Verilogg/LAB_MULTIPLIER/tbtb_isim_beh.exe" -prj "C:/Users/John Isa/Documents/VSCode/Verilogg/LAB_MULTIPLIER/tbtb_beh.prj" "work.tbtb" "work.glbl" 
