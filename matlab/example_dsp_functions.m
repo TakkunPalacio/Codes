@@ -1,7 +1,18 @@
-n= -5:5;
-x = 2 * impseq(-2,-5,5) - impseq(4,-5,5);
-stem(n,x); title("sequence in Problem 2.1a")
+% n= -5:5;
+% x = 2 * impseq(-2,-5,5) - impseq(4,-5,5);
+% stem(n,x); title("sequence in Problem 2.1a")
+% xlabel("n"); ylabel("x(n)");
+x = [1:7,6:-1:1];
+n = -2:10;
+[x1,n1] = sigshift(x,n,5);
+[x2,n2] = sigshift(x,n,-4);
+
+[x3,n3] = sigadd(2*x1,n1,(-3)*x2,n2);
+stem(n3,x3); 
+title("Shifter");
 xlabel("n"); ylabel("x(n)");
+
+
 function [y,n] = sigfold(x,n)
     % implements y(n) = x(-n)
     % -----------------------
