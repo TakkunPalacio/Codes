@@ -1,0 +1,55 @@
+.data
+txt1: .asciiz "Enter number: "
+txt2: .asciiz "Enter index: "
+txt3: .asciiz "The value is: "
+.text
+.globl main
+
+main:
+
+la $a0, txt1
+li $v0, 4
+syscall
+
+li $v0,5
+syscall
+move $s1,$v0 #number
+
+la $a0, txt2
+li $v0, 4
+syscall
+
+li $v0,5
+syscall
+move $s2,$v0 #index
+
+li $t1, 32
+
+sub $t2,$t1,$s2 # 32 - index
+
+sllv $t3, $s1, $t2 #shift to (32-index)
+
+andi $s0,$t3, 0x80000000 # AND 1000 0000 0000 0000 0000 0000 0000 0000
+
+beq $s0, 0, equal # if true, bit is 0
+j nequal #else, bit is 0
+
+equal:
+li $s0 , 0
+j print
+
+nequal:
+li $s0 , 1
+j print
+print:
+
+la $a0, txt2
+li $v0, 4
+syscall
+
+move $a0, $s0
+li $v0,1
+syscall
+
+li $v0,10
+syscall

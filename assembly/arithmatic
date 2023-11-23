@@ -1,0 +1,54 @@
+.data
+txt1: .asciiz "Enter 1st integer: "
+txt2: .asciiz "Enter 2nd integer: "
+txt3: .asciiz "The value is: "
+.text
+.globl main
+
+main:
+
+li $v0, 4
+la $a0, txt1
+syscall
+
+li $v0, 5
+syscall
+move $s1,$v0 #A
+
+li $v0, 4
+la $a0, txt2
+syscall
+
+li $v0, 5
+syscall
+move $s2,$v0 #B
+
+# A + (13)B - (11)A
+# A + (1 + 4+ 8 )B - (1+2+8)A
+# A + (2^0 + 2^2+ 2^3 )B - (2^0 +2^1 +2^3)A
+
+sll $t1, $s2, 2 # 4A
+sll $t2, $s2, 3 # 8A
+
+sll $t3, $s1, 1 # 2B
+sll $t4, $s1, 3 # 8B
+
+add $t5, $s2, $t1 #(1+4)A
+add $s3, $t5, $t2 #(1+4)A +(8)A
+
+add $t5, $s1, $t3 #(1+2)B
+add $s4, $t5, $t4 #(1+2)B +(8)B
+
+add $s5, $s1, $s3 # A + 13B
+sub $s0, $s5, $s4 # (A + 13B) - 11A
+
+li $v0, 4
+la $a0, txt3
+syscall
+
+li $v0,1
+move $a0,$s0
+syscall
+
+li $v0 ,10
+syscall
