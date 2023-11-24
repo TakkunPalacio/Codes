@@ -1,0 +1,41 @@
+.data
+.text
+.globl main
+
+main:#(3879*85)/64
+li $s0,3879
+#85 = (64+16+4+1)
+#85 = (2^6+2^4+2^2+2^0)
+sll $t1,$s0,6
+sll $t2,$s0,4
+sll $t3,$s0,2
+add $s1, $t1, $t2
+add $s2, $t3, $s0
+add $s3, $s1,$s2
+
+move $a0,$s3
+li $v0,1
+syscall
+
+sra $t1, $s3, 6 # 329715/64 = 5151
+
+li $a0,'\n'
+li $v0,11
+syscall
+
+li $v0,1
+move $a0,$t1 #5151
+syscall
+
+#get remainder
+sll $t2,$t1,6 #5151 * 64
+sub $s0,$s3,$t2 # 329715 -(5151 * 64)
+#get remainder
+
+li $a0,'R'
+li $v0,11
+syscall
+
+li $v0,1
+move $a0,$s0
+syscall

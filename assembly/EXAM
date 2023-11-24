@@ -1,0 +1,62 @@
+.data
+prompt1: .asciiz "\n Enter char1:"
+prompt2: .asciiz "\n Enter char2:"
+prompt3: .asciiz "\n Enter char3:"
+.text
+.globl main
+
+main:
+li $v0,4
+la $a0,prompt1
+syscall
+
+li $v0,12
+syscall
+move $s1,$v0
+
+li $v0,4
+la $a0,prompt2
+syscall
+
+li $v0,12
+syscall
+move $s2,$v0
+
+li $v0,4
+la $a0,prompt3
+syscall
+
+li $v0,12
+syscall
+move $s3,$v0
+
+li $v0,11
+li $a0,'\n'
+syscall
+
+li $v0,11
+subi $s0,$s1,0x20
+move $a0,$s0
+syscall
+
+addu $t0,$t0,$s0
+sll $t0,$t0,8
+
+li $v0,11
+subi $s0,$s2,0x20
+move $a0,$s0
+syscall
+
+addu $t0,$t0,$s0
+sll $t0,$t0,8
+
+li $v0,11
+subi $s0,$s3,0x20
+move $a0,$s0
+syscall
+
+addu $t0,$t0,$s0
+
+li $v0,10
+syscall
+
